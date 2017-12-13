@@ -1,0 +1,86 @@
+<ion-header>
+
+  <!-- <ion-navbar> -->
+  <ion-navbar [color]="'head'">
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Statistics</ion-title>
+    <ion-buttons right>
+      <img alt="logo" height="40" src="./assets/icon/icon.png">
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding >
+<!-- <ion-content padding class="masters"> -->
+  <ion-card class="border-shade">
+  <!-- <ion-card [color]="'four'"> -->
+    <ion-card-header>
+      Monthly Production Statistics
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #barCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="border-shade">
+  <!-- <ion-card [color]="'four'"> -->
+    <ion-card-header>
+      Monthly Sales Statistics
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #lineCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
+  <!-- <ion-card>
+        <ion-card-header>
+          Category Chart
+        </ion-card-header>
+        <ion-card-content>
+          <canvas #doughnutCanvas></canvas>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+          <ion-card-header>
+            Splitup Expenses/Revenues
+          </ion-card-header>
+          <ion-card-content>
+            <canvas #pieCanvas></canvas>
+          </ion-card-content>
+        </ion-card>
+      <ion-card>
+        <ion-card-header>
+          Radar Chart
+        </ion-card-header>
+        <ion-card-content>
+          <canvas #radarCanvas></canvas>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-header>
+          Polar Area Chart
+        </ion-card-header>
+        <ion-card-content>
+          <canvas #polarCanvas></canvas>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-header>
+          Bubble Chart
+        </ion-card-header>
+        <ion-card-content>
+          <canvas #bubbleCanvas></canvas>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-header>
+          Mixed Chart
+        </ion-card-header>
+        <ion-card-content>
+          <canvas #mixedCanvas></canvas>
+        </ion-card-content>
+      </ion-card> -->
+</ion-content>

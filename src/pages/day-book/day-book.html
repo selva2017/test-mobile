@@ -1,0 +1,30 @@
+<ion-header>
+    
+      <ion-navbar [color]="'head'">
+        <ion-buttons left>
+          <button ion-button icon-only menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+        </ion-buttons>
+        <ion-title>Day Book</ion-title>
+        <ion-buttons right>
+          <img alt="logo" height="40" src="./assets/icon/icon.png">
+        </ion-buttons>
+      </ion-navbar>
+    
+    </ion-header>
+    
+    <ion-content class="bg">
+      <!-- <h3 text-center>Select your favorite Quote</h3> -->
+      <ion-list padding>
+        <button ion-item *ngFor="let item of dayBookList; let i = index" [navPush]="dayBookDetailsPage" [navParams]="item" class="border-shade">
+          <!-- <h2>{{ (item.inventoryEntryVOs[i].stockItemName) ? (item.inventoryEntryVOs[i].stockItemName) :  ledgerEntryVOs[i].ledgerName}}</h2> -->
+          <!-- <p>{{ (item.inventoryEntryVOs[i].billedQuantity) ? (item.inventoryEntryVOs[i].billedQuantity) : ledgerEntryVOs[i].amount }}</p> -->
+          <h2>{{ item.voucherType}}</h2>
+          <h3>{{ item.partyLedgerName}}</h3>
+          <p>{{ item.voucherNumber}}</p>
+          <p>{{ item.voucherDate }}</p>
+          <button ion-button clear item-end>View</button>
+        </button>
+      </ion-list>
+    </ion-content>

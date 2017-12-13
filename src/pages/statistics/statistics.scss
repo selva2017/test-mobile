@@ -1,0 +1,22 @@
+page-statistics {
+
+}
+
+
+.masters {
+    background-color: #7bcfff;
+  }
+
+.secondary {
+    background-color: #ffff;
+  }
+  .bg {
+    // background: linear-gradient(to bottom, #7bcfff 100%, #fff, 0%);
+    background: -webkit-linear-gradient(-55deg, #209deb 35%, #e9b44c 100%) !important;      
+    // background: -webkit-linear-gradient(-55deg, #50a2a7 35%, #e9b44c 100%) !important;      
+  }
+
+  .border-shade {
+    // padding: 20px;
+    box-shadow: 3px 7px 7px #e9b44c;
+  }

@@ -1,0 +1,228 @@
+<ion-header>
+  <!-- <ion-navbar no-border-bottom>
+    <ion-title center>
+      Dashboard
+    </ion-title>
+ </ion-navbar> -->
+  <!-- <ion-navbar color="primary"> -->
+  <!-- <ion-navbar> -->
+  <ion-navbar [color]="'head'">
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title center>Dashboard</ion-title>
+    <ion-buttons right>
+      <img alt="logo" height="40" src="./assets/icon/icon.png">
+      <!-- <img alt="logo" height="40" src="./assets/icon/ss1.jpg"> -->
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top [color]="isAndroid ? 'royal' : 'masters'">
+    <!-- <ion-toolbar no-border-top class="masters"> -->
+    <ion-segment [(ngModel)]="category">
+      <ion-segment-button value="production">
+        Production
+      </ion-segment-button>
+      <ion-segment-button value="sales">
+        Sales
+      </ion-segment-button>
+      <ion-segment-button value="statistics">
+        Message
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="bg">
+  <!-- <ion-content padding [color]="'head'"> -->
+  <div [ngSwitch]="category">
+    <ion-list *ngSwitchCase="'production'">
+      <ion-item class="border-shade">
+        <ion-thumbnail item-start [ngStyle]="{'color':'green'}">
+          <ion-icon ios="ios-stats" md="md-stats"></ion-icon>
+        </ion-thumbnail>
+        <h2>This Week</h2>
+        <!-- <h1>{{(prodStatistics.stockWeek/1000)}} tons</h1> -->
+        <!-- <p>Last update {{today | date:'medium'}}</p> -->
+      </ion-item>
+      <br>
+      <ion-item class="border-shade">
+        <!-- <ion-item [color]="'one'"> -->
+        <ion-thumbnail item-start [ngStyle]="{'color':'blue'}">
+          <ion-icon ios="logo-buffer" md="logo-buffer"></ion-icon>
+        </ion-thumbnail>
+        <h2>This Month</h2>
+        <h1>{{displayIndianNumber(prodStatistics.monthlyProduction/1000)}} tons</h1>
+        <!-- <p>Last update {{today | date:'medium'}}</p> -->
+      </ion-item>
+      <br>
+      <ion-item class="border-shade">
+        <!-- <ion-item [color]="'two'"> -->
+        <ion-thumbnail item-start [ngStyle]="{'color':'orange'}">
+          <!-- <img src="assets/img/thumbnail-puppy-1.jpg"> -->
+          <ion-icon ios="ios-paper" md="md-paper"></ion-icon>
+        </ion-thumbnail>
+        <h2>Current Quarter</h2>
+        <h1>{{displayIndianNumber(prodStatistics.quarterlyProduction/1000)}} tons</h1>
+        <!-- <p>Last update {{today | date:'medium'}}</p> -->
+      </ion-item>
+      <br>
+      <ion-item class="border-shade">
+        <!-- <ion-item [color]="'three'"> -->
+        <ion-thumbnail item-start [ngStyle]="{'color':'purple'}">
+          <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
+        </ion-thumbnail>
+        <h2>Year to Date</h2>
+        <h1>{{displayIndianNumber(prodStatistics.yearlyProduction/1000)}} tons</h1>
+        <!-- <p>Last update {{today | date:'medium'}}</p> -->
+      </ion-item>
+      <br>
+      <ion-item right class="border-shade">
+        <p>Last update {{today | date:'medium'}}</p>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'sales'">
+      <ion-item class="border-shade">
+        <ion-thumbnail item-start [ngStyle]="{'color':'purple'}">
+          <ion-icon ios="ios-pricetags-outline" md="md-pricetags"></ion-icon>
+        </ion-thumbnail>
+        <h2>Weekly</h2>
+        <h1>{{displayINR(prodStatistics.weeklySales)}} </h1>
+      </ion-item>
+      <br>
+      <ion-item class="border-shade">
+        <!-- <ion-item [color]="'one'"> -->
+        <ion-thumbnail item-start [ngStyle]="{'color':'green'}">
+          <ion-icon ios="ios-pie-outline" md="md-pie"></ion-icon>
+        </ion-thumbnail>
+        <h2>This Month</h2>
+        <h1>{{displayINR(prodStatistics.monthlySales)}}</h1>
+      </ion-item>
+      <br>
+      <ion-item class="border-shade">
+        <!-- <ion-item [color]="'two'"> -->
+        <ion-thumbnail item-start [ngStyle]="{'color':'brown'}">
+          <ion-icon ios="ios-rainy" md="md-rainy"></ion-icon>
+        </ion-thumbnail>
+        <h2>Quarterly</h2>
+        <h1>{{displayINR(prodStatistics.quarterlySales)}}</h1>
+      </ion-item>
+      <br>
+      <!-- <ion-item [color]="'three'"> -->
+      <ion-item class="border-shade">
+        <ion-thumbnail item-start [ngStyle]="{'color':'orange'}">
+          <ion-icon ios="logo-buffer" md="logo-buffer"></ion-icon>
+        </ion-thumbnail>
+        <h2>Yearly</h2>
+        <h1>{{displayINR(prodStatistics.yearlySales)}} </h1>
+      </ion-item>
+      <br>
+      <ion-item right class="border-shade">
+        <p>Last update {{today | date:'medium'}}</p>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'statistics'">
+      <ion-item>
+        <ion-card text-wrap class="border-shade">
+          <ion-card-title >
+            Spak News...
+          </ion-card-title>
+          <ion-item left>
+            <p>Published {{today | date:'medium'}}</p>
+          </ion-item>
+          <img src="assets/imgs/logo.png" />
+          <ion-card-content>
+
+            <p>
+              The most popular industrial group ever, and largely responsible for bringing the new products.
+            </p>
+
+
+          </ion-card-content>
+
+        </ion-card>
+      </ion-item>
+    </ion-list>
+  </div>
+  <!-- </ion-content> -->
+  <!-- For Graphs -->
+  <!-- <ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Dashboard</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+  <!-- <ion-content> -->
+  <!-- Graph portion -->
+  <!-- <ion-card>
+    <ion-card-header>
+      Production Data
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #barCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Monthly Production Statistics
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #lineCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Category Chart
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #doughnutCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+      <ion-card-header>
+        Splitup Expenses/Revenues
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #pieCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Radar Chart
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #radarCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Polar Area Chart
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #polarCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Bubble Chart
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #bubbleCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Mixed Chart
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #mixedCanvas></canvas>
+    </ion-card-content>
+  </ion-card> -->
+</ion-content>
